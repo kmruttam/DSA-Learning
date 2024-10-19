@@ -6,22 +6,23 @@ public class Expression {
     private String value;
     private final List<Character> leftBrackets = Arrays.asList('(', '<', '[', '{');
     private final List<Character> rightBrackets = Arrays.asList(')', '>', ']', '}');
+
     public Expression(String input) {
         value = input;
     }
 
     public boolean isBalanced() {
         Stack<Character> stack = new Stack<>();
-        for(char ch : value.toCharArray()){
-            if(isLeftBracket(ch)){
+        for (char ch : value.toCharArray()) {
+            if (isLeftBracket(ch)) {
                 stack.push(ch);
             }
-            if(isRightBracket(ch)){
-                if(stack.empty()){
+            if (isRightBracket(ch)) {
+                if (stack.empty()) {
                     return false;
                 }
                 char top = stack.pop();
-                if(isBracketMatching(top, ch)){
+                if (isBracketMatching(top, ch)) {
                     return false;
                 }
             }
@@ -37,7 +38,7 @@ public class Expression {
         return rightBrackets.contains(ch);
     }
 
-    private boolean isBracketMatching(Character left, Character right){
+    private boolean isBracketMatching(Character left, Character right) {
         return leftBrackets.indexOf(left) == rightBrackets.indexOf(right);
     }
 }

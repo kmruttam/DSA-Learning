@@ -14,7 +14,7 @@ public class HashTable {
 
         public void put(int key, String value) {
             Entry entry = getEntry(key);
-            if(entry != null){
+            if (entry != null) {
                 entry.value = value;
                 return;
             }
@@ -28,18 +28,18 @@ public class HashTable {
 
         public void remove(int key) {
             Entry entry = getEntry(key);
-            if(entry == null) {
+            if (entry == null) {
                 throw new IllegalStateException();
             }
             getBucket(key).remove(entry);
 
         }
 
-        private Entry getEntry(int key){
+        private Entry getEntry(int key) {
             LinkedList<Entry> bucket = getBucket(key);
-            if(bucket != null) {
-                for(Entry entry : bucket){
-                    if(entry.key == key){
+            if (bucket != null) {
+                for (Entry entry : bucket) {
+                    if (entry.key == key) {
                         return entry;
                     }
                 }
@@ -47,10 +47,10 @@ public class HashTable {
             return null;
         }
 
-        private LinkedList<Entry> getOrCreateBucket(int key){
+        private LinkedList<Entry> getOrCreateBucket(int key) {
             int index = hash(key);
             LinkedList<Entry> bucket = entries[index];
-            if(bucket == null) {
+            if (bucket == null) {
                 entries[index] = new LinkedList<>();
             }
             return bucket;

@@ -148,18 +148,18 @@ public class LinkedList {
   }
 
   public int getKthFromTheEnd(int k) {
-    if(isEmpty() || k < 1){
+    if (isEmpty() || k < 1) {
       throw new IllegalArgumentException();
     }
     Node a = first;
     Node b = first;
-    for(int i = 0; i < k -1; i++){
+    for (int i = 0; i < k - 1; i++) {
       b = b.next;
-      if(b == null){
+      if (b == null) {
         throw new IllegalArgumentException();
       }
     }
-    while(b != last) {
+    while (b != last) {
       a = a.next;
       b = b.next;
     }

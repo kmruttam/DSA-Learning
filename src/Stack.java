@@ -5,7 +5,7 @@ public class Stack {
     private int index = 0;
 
     public int push(int item) {
-        if(index == stack.length){
+        if (index == stack.length) {
             throw new StackOverflowError();
         }
         stack[index++] = item;
@@ -13,14 +13,14 @@ public class Stack {
     }
 
     public int pop() {
-        if(index == 0){
+        if (index == 0) {
             throw new IllegalStateException();
         }
         return stack[--index];
     }
 
     public int peek() {
-        if(index == 0){
+        if (index == 0) {
             throw new IllegalStateException();
         }
         return stack[index - 1];
@@ -35,7 +35,7 @@ public class Stack {
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         var content = Arrays.copyOfRange(stack, 0, index);
         return Arrays.toString(content);
     }
