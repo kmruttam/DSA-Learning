@@ -1,3 +1,5 @@
+package data_structure;
+
 public class AVLTree {
     public class AVLNode {
         private int value;

@@ -1,3 +1,5 @@
+package data_structure;
+
 public class Array {
     private int[] items;
     private int size = 0;
