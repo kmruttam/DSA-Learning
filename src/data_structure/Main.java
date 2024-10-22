@@ -4,7 +4,12 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] numbers = {5, 3, 8, 4, 1, 2};
-        System.out.println(MaxHeap.getKthLargest(numbers, 3));
+        var trie = new Trie();
+        trie.insert("car");
+        trie.insert("card");
+        trie.insert("care");
+        trie.insert("careful");
+        trie.insert("egg");
+        System.out.println(trie.findWords("care"));
     }
 }
