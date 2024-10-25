@@ -136,9 +136,9 @@ public class WeightedGraph {
     public boolean hasCycle() {
         Set<Node> visited = new HashSet<>();
         for (Node node : nodes.values()) {
-             if (!visited.contains(node) && hasCycle(node, null, visited)) {
-                 return true;
-             }
+            if (!visited.contains(node) && hasCycle(node, null, visited)) {
+                return true;
+            }
         }
         return false;
     }
