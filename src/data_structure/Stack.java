@@ -38,7 +38,7 @@ public class Stack {
 
     @Override
     public String toString() {
-        var content = Arrays.copyOfRange(stack, 0, index);
+        int[] content = Arrays.copyOfRange(stack, 0, index);
         return Arrays.toString(content);
     }
 }

@@ -16,27 +16,27 @@ public class Trie {
             this.value = value;
         }
 
-        public boolean hasChild(char ch){
+        public boolean hasChild(char ch) {
             return children.containsKey(ch);
         }
 
-        public void addChild(char ch){
+        public void addChild(char ch) {
             children.put(ch, new Node(ch));
         }
 
-        public Node getChild(char ch){
+        public Node getChild(char ch) {
             return children.get(ch);
         }
 
-        public Node[] getChildren(){
+        public Node[] getChildren() {
             return children.values().toArray(new Node[0]);
         }
 
-        public boolean hasChildren(){
+        public boolean hasChildren() {
             return !children.isEmpty();
         }
 
-        public void removeChild(char ch){
+        public void removeChild(char ch) {
             children.remove(ch);
         }
 
@@ -46,10 +46,10 @@ public class Trie {
         }
     }
 
-    public void insert(String word){
+    public void insert(String word) {
         Node current = root;
-        for(char ch : word.toCharArray()){
-            if(!current.hasChild(ch)){
+        for (char ch : word.toCharArray()) {
+            if (!current.hasChild(ch)) {
                 current.addChild(ch);
             }
             current = current.getChild(ch);
@@ -57,13 +57,13 @@ public class Trie {
         current.isEndOfWord = true;
     }
 
-    public boolean contains(String word){
-        if(word == null){
+    public boolean contains(String word) {
+        if (word == null) {
             return false;
         }
         Node current = root;
-        for(char ch : word.toCharArray()){
-            if(!current.hasChild(ch)){
+        for (char ch : word.toCharArray()) {
+            if (!current.hasChild(ch)) {
                 return false;
             }
             current = current.getChild(ch);
@@ -71,82 +71,82 @@ public class Trie {
         return current.isEndOfWord;
     }
 
-    public void preOrderTraversal(){
+    public void preOrderTraversal() {
         preOrderTraversal(root);
     }
 
-    private void preOrderTraversal(Node root){
+    private void preOrderTraversal(Node root) {
         System.out.println(root.value);
-        for(Node child : root.getChildren()){
+        for (Node child : root.getChildren()) {
             preOrderTraversal(child);
         }
     }
 
-    public void postOrderTraversal(){
+    public void postOrderTraversal() {
         postOrderTraversal(root);
     }
 
-    private void postOrderTraversal(Node root){
-        for(Node child : root.getChildren()){
+    private void postOrderTraversal(Node root) {
+        for (Node child : root.getChildren()) {
             postOrderTraversal(child);
         }
         System.out.println(root.value);
     }
 
-    public void remove(String word){
-        if(word == null){
+    public void remove(String word) {
+        if (word == null) {
             return;
         }
         remove(root, word, 0);
     }
 
-    private void remove(Node root, String word, int index){
-        if(index == word.length()){
+    private void remove(Node root, String word, int index) {
+        if (index == word.length()) {
             root.isEndOfWord = false;
             return;
         }
 
         char ch = word.charAt(index);
-        var child = root.getChild(ch);
-        if(child == null){
+        Node child = root.getChild(ch);
+        if (child == null) {
             return;
         }
 
         remove(child, word, index + 1);
 
-        if(!child.hasChildren() && child.isEndOfWord){
+        if (!child.hasChildren() && child.isEndOfWord) {
             root.removeChild(ch);
         }
     }
 
-    public List<String> findWords(String prefix){
+    public List<String> findWords(String prefix) {
         List<String> words = new ArrayList<>();
         Node lastNode = findLastNodeOf(prefix);
         findWords(lastNode, prefix, words);
         return words;
     }
 
-    private void findWords(Node root, String prefix, List<String> words){
-        if(root == null){
+    private void findWords(Node root, String prefix, List<String> words) {
+        if (root == null) {
             return;
         }
-        if(root.isEndOfWord){
+        if (root.isEndOfWord) {
             words.add(prefix);
         }
 
-        for(var child : root.getChildren()){
+        for (Node child : root.getChildren()) {
             findWords(child, prefix + child.value, words);
         }
     }
 
-    private Node findLastNodeOf(String prefix){
-        if(prefix == null){
+    private Node findLastNodeOf(String prefix) {
+        if (prefix == null) {
             return null;
         }
         Node current = root;
-        for(var ch : prefix.toCharArray()){
+        for (char ch : prefix.toCharArray()) {
             Node child = current.getChild(ch);
-            if(child == null) {
+            if (child == null) {
                 return null;
             }
             current = child;
@@ -154,28 +154,3 @@ public class Trie {
         return current;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

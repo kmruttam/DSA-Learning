@@ -6,7 +6,7 @@ public class CharacterFinder {
     public char findFirstNonRepeatingCharacter(String str) {
         Map<Character, Integer> map = new HashMap<>();
         char[] chars = str.toCharArray();
-        for (var ch : chars) {
+        for (char ch : chars) {
             int count = map.containsKey(ch) ? map.get(ch) : 0;
             map.put(ch, count + 1);
         }

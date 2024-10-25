@@ -194,7 +194,7 @@ public class BinaryTree {
     }
 
     public void traverseLevelOrder() {
-        for (var i = 0; i <= height(); i++) {
+        for (int i = 0; i <= height(); i++) {
             for (int value : getNodesAtDistance(i)) {
                 System.out.println(value);
             }

@@ -1,10 +1,8 @@
 package data_structure;
 
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
-        var trie = new Trie();
+        Trie trie = new Trie();
         trie.insert("car");
         trie.insert("card");
         trie.insert("care");

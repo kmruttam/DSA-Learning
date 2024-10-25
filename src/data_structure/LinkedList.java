@@ -21,7 +21,7 @@ public class LinkedList {
   }
 
   public void addLast(int item) {
-    var node = new Node(item);
+    Node node = new Node(item);
     if (isEmpty()) {
       first = last = node;
     } else {
@@ -32,7 +32,7 @@ public class LinkedList {
   }
 
   public void addFirst(int item) {
-    var node = new Node(item);
+    Node node = new Node(item);
 
     if (isEmpty()) {
       first = last = node;

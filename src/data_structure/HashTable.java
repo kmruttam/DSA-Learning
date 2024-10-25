@@ -3,6 +3,7 @@ package data_structure;
 import java.util.LinkedList;
 
 public class HashTable {
+    @SuppressWarnings("unused")
     private class Entry {
         private int key;
         private String value;
@@ -12,6 +13,7 @@ public class HashTable {
             this.value = value;
         }
 
+        @SuppressWarnings("unchecked")
         private LinkedList<Entry>[] entries = new LinkedList[5];
 
         public void put(int key, String value) {

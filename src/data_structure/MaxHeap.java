@@ -1,27 +1,27 @@
 package data_structure;
 
 public class MaxHeap {
-    public static void heapify(int[] array){
-        int lastParentIndex =  array.length / 2 - 1;
-        for(int i = lastParentIndex; i >= 0; i--){
+    public static void heapify(int[] array) {
+        int lastParentIndex = array.length / 2 - 1;
+        for (int i = lastParentIndex; i >= 0; i--) {
             heapify(array, i);
         }
     }
 
-    private static void heapify(int[] array, int index){
+    private static void heapify(int[] array, int index) {
         int largerIndex = index;
 
         int leftIndex = index * 2 + 1;
-        if(leftIndex < array.length && array[leftIndex] > array[largerIndex]){
+        if (leftIndex < array.length && array[leftIndex] > array[largerIndex]) {
             largerIndex = leftIndex;
         }
 
         int rightIndex = index * 2 + 2;
-        if(rightIndex < array.length && array[rightIndex] > array[largerIndex]){
+        if (rightIndex < array.length && array[rightIndex] > array[largerIndex]) {
             largerIndex = rightIndex;
         }
 
-        if(index == largerIndex){
+        if (index == largerIndex) {
             return;
         }
 
@@ -29,23 +29,23 @@ public class MaxHeap {
         heapify(array, largerIndex);
     }
 
-    private static void swap(int[] array, int first, int second){
+    private static void swap(int[] array, int first, int second) {
         int temp = array[first];
         array[first] = array[second];
         array[second] = temp;
     }
 
-    public static int getKthLargest(int[] array, int k){
-        if(k < 1 || k > array.length){
+    public static int getKthLargest(int[] array, int k) {
+        if (k < 1 || k > array.length) {
             throw new IllegalArgumentException();
         }
 
         Heap heap = new Heap(10);
-        for(int item : array){
+        for (int item : array) {
             heap.insert(item);
         }
 
-        for(int i = 0; i < k - 1; i++){
+        for (int i = 0; i < k - 1; i++) {
             heap.remove();
         }
 
