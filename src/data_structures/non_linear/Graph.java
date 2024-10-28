@@ -1,4 +1,4 @@
-package data_structure;
+package data_structures.non_linear;
 
 import java.util.*;
 import java.util.Stack;
@@ -136,10 +136,10 @@ public class Graph {
         }
     }
 
-     public List<String> topologicalSort() {
+    public List<String> topologicalSort() {
         Stack<Node> stack = new Stack<>();
         Set<Node> visited = new HashSet<>();
-        for (var node : nodes.values()) {
+        for (Node node : nodes.values()) {
             topologicalSort(node, visited, stack);
         }
         List<String> sorted = new ArrayList<>();
@@ -147,9 +147,9 @@ public class Graph {
             sorted.add(stack.pop().label);
         }
         return sorted;
-     }
+    }
 
-     private void topologicalSort(Node node, Set<Node> visited, Stack<Node> stack) {
+    private void topologicalSort(Node node, Set<Node> visited, Stack<Node> stack) {
         if (visited.contains(node)) {
             return;
         }
@@ -158,9 +158,9 @@ public class Graph {
             topologicalSort(neighbour, visited, stack);
         }
         stack.push(node);
-     }
+    }
 
-     public boolean hasCycle() {
+    public boolean hasCycle() {
         Set<Node> all = new HashSet<>();
         Set<Node> visiting = new HashSet<>();
         Set<Node> visited = new HashSet<>();
@@ -172,11 +172,11 @@ public class Graph {
                 return true;
             }
         }
-        return false; 
+        return false;
 
-     }
+    }
 
-     private boolean hasCycle(Node node, Set<Node> all, Set<Node> visiting, Set<Node> visited) {
+    private boolean hasCycle(Node node, Set<Node> all, Set<Node> visiting, Set<Node> visited) {
         all.remove(node);
         visiting.add(node);
 
@@ -194,25 +194,5 @@ public class Graph {
         visiting.remove(node);
         visited.add(node);
         return false;
-     }
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

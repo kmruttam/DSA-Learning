@@ -1,4 +1,4 @@
-package data_structure;
+package data_structures.linear;
 
 import java.util.NoSuchElementException;
 

@@ -1,4 +1,4 @@
-package data_structure;
+package data_structures.linear;
 
 public class Array {
     private int[] items;

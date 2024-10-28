@@ -1,4 +1,4 @@
-package data_structure;
+package data_structures.non_linear;
 
 import java.util.*;
 import java.util.PriorityQueue;
@@ -145,7 +145,7 @@ public class WeightedGraph {
 
     private boolean hasCycle(Node node, Node parent, Set<Node> visited) {
         visited.add(node);
-        for (var edge : node.getEdges()) {
+        for (Edge edge : node.getEdges()) {
             if (edge.to == parent) {
                 continue;
             }

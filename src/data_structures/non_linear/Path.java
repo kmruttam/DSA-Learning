@@ -1,4 +1,4 @@
-package data_structure;
+package data_structures.non_linear;
 
 import java.util.ArrayList;
 import java.util.List;
