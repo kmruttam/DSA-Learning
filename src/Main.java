@@ -1,7 +1,6 @@
 import java.util.Arrays;
 
 import algorithms.sorting.BucketSort;
-import algorithms.sorting.CountingSort;
 
 public class Main {
     public static void main(String[] args) {
